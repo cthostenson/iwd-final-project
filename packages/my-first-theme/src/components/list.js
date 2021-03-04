@@ -1,5 +1,5 @@
 import React from "react"
-import { connect } from "frontity"
+import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
 
 const List = ({ state }) => {
@@ -21,3 +21,13 @@ const List = ({ state }) => {
 }
 
 export default connect(List)
+
+const Items = styled.div`
+  & > a {
+    display: block;
+    margin: 6px 0;
+    font-size: 1.2em;
+    color: steelblue;
+    text-decoration: none;
+  }
+`
