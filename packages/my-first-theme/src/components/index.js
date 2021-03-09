@@ -5,6 +5,7 @@ import Switch from "@frontity/components/switch"
 import List from "./list"
 import Post from "./post"
 import Page from "./page"
+import Book from "./book"
 import Loading from "./loading"
 import Error from "./error"
 import link from "@frontity/html2react/processors/link";
@@ -83,7 +84,7 @@ const Root = ({ state, actions }) => {
                     <List when={data.isArchive} />
                     <Post when={data.isPost} />
                     <Page when={data.isPage} />
-                    <Page when={data.isBook} />
+                    <Book when={data.isBook} />
                     <Page when={data.isReview} />
                     <Error when={data.isError} />
                 </Switch>
