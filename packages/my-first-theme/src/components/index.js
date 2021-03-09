@@ -9,6 +9,7 @@ import Loading from "./loading"
 import Error from "./error"
 import link from "@frontity/html2react/processors/link";
 
+
 const Root = ({ state, actions }) => {
     const data = state.source.get(state.router.link)
 
@@ -30,26 +31,48 @@ const Root = ({ state, actions }) => {
                     }
                     html {
                       font-family: system-ui, Verdana, Arial, sans-serif;
+                      background-color: #0a0a0a;
+                    }
+                    h1, h2, h3, h4, h5, h6, p, span {
+                        color: #fff;
+                    }
+                    h1 {
+                        text-transform: uppercase;
+                        text-align: center;
+                        font-size: 3em;
+                    }
+                    .showURL {
+                        text-align: center;
+                        color: #fff;
+                    }
+                    
+                    hr {
+                        width: 75%;
+                        margin: 0 auto; 
                     }
                 `}
             />
             <Header isPostType={data.isPostType} isPage={data.isPage}>
                 <HeaderContent>
-                    <h1>Frontity Workshop</h1>
-                    {
-                        state.theme.isUrlVisible ? (
-                            <>
-                                Current URL: {state.router.link}{" "}
-                                <Button onClick={actions.theme.toggleUrl}>&#x3c; Hide URL</Button>
-                            </>
-                        ) : (
-                            <Button onClick={actions.theme.toggleUrl}>Show URL &#x3e;</Button>
-                        )
-                    }
+                    <h1>Space Archives</h1>
+                    <div className="showURL">
+                        {
+                            state.theme.isUrlVisible ? (
+                                <>
+                                    Current URL: {state.router.link}{" "}
+                                    <Button onClick={actions.theme.toggleUrl}>&#x3c; Hide URL</Button>
+                                </>
+                            ) : (
+                                <Button onClick={actions.theme.toggleUrl}>Show URL &#x3e;</Button>
+                            )
+                        }
+                    </div>
                     <Menu>
                         <Link link="/">Home</Link>
-                        <Link link="/destinations">Destinations</Link>
-                        <Link link="/about-us">About Us</Link>
+                        <Link link="/about">About</Link>
+                        <Link link="/book">Books</Link>
+                        <Link link="/review">Reviews</Link>
+                        <Link link="/contact">Contact</Link>
                     </Menu>
                 </HeaderContent>
             </Header>
@@ -60,7 +83,8 @@ const Root = ({ state, actions }) => {
                     <List when={data.isArchive} />
                     <Post when={data.isPost} />
                     <Page when={data.isPage} />
-                    <Page when={data.isDestinations} />
+                    <Page when={data.isBook} />
+                    <Page when={data.isReview} />
                     <Error when={data.isError} />
                 </Switch>
             </Main>
@@ -71,14 +95,6 @@ const Root = ({ state, actions }) => {
 export default connect(Root)
 
 const Header = styled.header`
-  background-color: #e5edee;
-  border-width: 0 0 8px 0;
-  border-style: solid;
-  border-color: ${ props => props.isPostType ? ( props.isPage ? 'lightsteelblue' : 'lightseagreen' ) : 'maroon'};
-
-  h1 {
-    color: #4a4a4a;
-  }
 `
 const HeaderContent = styled.div`
   max-width: 800px;
@@ -111,10 +127,15 @@ const Menu = styled.nav`
   display: flex;
   flex-direction: row;
   margin-top: 1em;
+  justify-content: center;
+  transition: color 0.3s;
   & > a {
     margin-right: 1em;
-    color: steelblue;
+    color: #fff;
     text-decoration: none;
+  }
+  & > a:hover {
+    color: steelblue;
   }
 `
 const Button = styled.button`
@@ -127,3 +148,10 @@ const Button = styled.button`
     color: #888;
   }
 `
+
+/*
+  background-color: #e5edee;
+  border-width: 0 0 8px 0;
+  border-style: solid;
+  border-color: ${ props => props.isPostType ? ( props.isPage ? 'lightsteelblue' : 'lightseagreen' ) : 'maroon'};
+ */

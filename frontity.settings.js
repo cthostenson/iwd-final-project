@@ -15,13 +15,18 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org",
+          "url": "https://cthostenson2.bitlampsites.com/wpd/FinalProject",
           "postTypes": [
             {
-              type: "destinations",
-              endpoint: "destinations",
-              archive: "/destinations"
-            }
+              type: "book",
+              endpoint: "book",
+              archive: "/book"
+            },
+            {
+              type: "review",
+              endpoint: "review",
+              archive: "/review"
+            },
           ]
         }
       }
