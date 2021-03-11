@@ -6,6 +6,7 @@ import List from "./list"
 import Post from "./post"
 import Page from "./page"
 import Book from "./book"
+import Review from "./review"
 import Loading from "./loading"
 import Error from "./error"
 import link from "@frontity/html2react/processors/link";
@@ -48,8 +49,7 @@ const Root = ({ state, actions }) => {
                     }
                     
                     hr {
-                        width: 75%;
-                        margin: 0 auto; 
+                    width: 75%;
                     }
                 `}
             />
@@ -85,7 +85,7 @@ const Root = ({ state, actions }) => {
                     <Post when={data.isPost} />
                     <Page when={data.isPage} />
                     <Book when={data.isBook} />
-                    <Page when={data.isReview} />
+                    <Review when={data.isReview} />
                     <Error when={data.isError} />
                 </Switch>
             </Main>

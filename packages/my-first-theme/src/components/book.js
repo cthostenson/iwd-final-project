@@ -33,7 +33,7 @@ const CustomGrid = styled.div`
         padding: 15px;
     }
     & img {
-        height: 500px;
-        object-fit: contain;
+        height: 600px;
+        object-fit: cover;
     }
 `
