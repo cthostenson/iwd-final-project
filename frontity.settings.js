@@ -16,6 +16,7 @@ const settings = {
       "state": {
         "source": {
           "url": "https://cthostenson2.bitlampsites.com/wpd/finalproject",
+          "homepage": "/space-archives",
           "postTypes": [
             {
               type: "book",

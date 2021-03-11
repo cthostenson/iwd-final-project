@@ -8,7 +8,9 @@ const Book = ({ state, libraries }) => {
     const post = state.source[data.type][data.id]
 
     const Html2React = libraries.html2react.Component
-
+    /*
+        const mediaKey = post.featured_media
+        state.source.attachment[mediaKey].source_url*/
     return (
         <div>
             <CustomGrid>

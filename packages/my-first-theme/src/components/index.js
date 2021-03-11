@@ -7,6 +7,7 @@ import Post from "./post"
 import Page from "./page"
 import Book from "./book"
 import Review from "./review"
+import Home from "./home"
 import Loading from "./loading"
 import Error from "./error"
 import link from "@frontity/html2react/processors/link";
@@ -49,7 +50,8 @@ const Root = ({ state, actions }) => {
                     }
                     
                     hr {
-                    width: 75%;
+                        width: 75%;
+                        margin: 0 auto;
                     }
                 `}
             />
